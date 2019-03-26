@@ -8,6 +8,6 @@ export const city = (state = {}, action) => {
           city: action.payload
         }
     default:
-      break;
+      return state;
   }
 }

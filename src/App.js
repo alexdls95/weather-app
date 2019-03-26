@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import LocationListContainer from './containers/LocationList'
-import ForecastExtended from './components/ForecastExtended'
 import './App.css';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 const cities = [
   'Montevideo,uy',
@@ -17,20 +17,9 @@ const cities = [
 ]
 
 
-
-
-
 class App extends Component {
 
-  constructor() {
-    super ()
-    this.state = {
-      city: '',
-    }
-  }
-
   render() {
-    const { city } = this.state
     return (
       <Grid>
       <Row>
@@ -46,19 +35,12 @@ class App extends Component {
         <Col xs={12} md={6}>
           <LocationListContainer
             cities={cities}
-            onSelectedLocation={this.handleSelectedLocation}
           />
         </Col>
         <Col xs={12} md={6}>
         <Paper>
           <div className="details">
-          {
-            city ?
-              <ForecastExtended city={city}/>
-            :
-              <h2>Seleccione una ciudad</h2>
-          }
-            
+            <ForecastExtendedContainer></ForecastExtendedContainer>
           </div>
         </Paper>
         </Col>
