@@ -4,7 +4,7 @@ import reducers from './../reducers'
 
 
 const initialState = {
-  city: 'Montevideo,uy'
+  city: 'Montevideo,uy',
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

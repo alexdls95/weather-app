@@ -6,7 +6,7 @@ import LocationList from './../components/LocationList'
 
 class LocationListContainer extends Component {
   handleSelectedLocation = city => {
-    this.props.setCity(city)
+    this.props.setSelectedCity(city)
   }
   render() {
     return (
@@ -19,13 +19,12 @@ class LocationListContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setCity: value => dispatch(setSelectedCity(value)),
+  setSelectedCity: value => dispatch(setSelectedCity(value)),
 });
 
 LocationListContainer.propTypes = {
-  setCity: PropTypes.func.isRequired,
+  setSelectedCity: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,
 };
-
 
 export default connect(null, mapDispatchToProps)(LocationListContainer);
