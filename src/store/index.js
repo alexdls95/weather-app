@@ -1,16 +1,16 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import { city } from './../reducers/city'
+import reducers from './../reducers'
 
 
 const initialState = {
   city: 'Montevideo,uy'
 }
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const store = createStore (
-  city,
+  reducers,
   initialState,
-  composeEnhancer(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk))
 ) 
