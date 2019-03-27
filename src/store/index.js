@@ -7,7 +7,7 @@ const initialState = {
   city: 'Montevideo,uy'
 }
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || DynamicsCompressorNode
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose
 
 export const store = createStore (
   city,
