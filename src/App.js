@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import LocationListContainer from './containers/LocationList'
+import ForecastExtendedContainer from './containers/ForecastExtended'
 import './App.css';
-import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 
 const cities = [
   'Montevideo,uy',
