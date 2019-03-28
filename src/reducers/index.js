@@ -7,4 +7,5 @@ export default combineReducers({
   cities,
 })
 
+export const getCity = state => state.city
 export const getForecastDataFromCities = state => (_getForecastDataFromCities(state.cities, state.city))
