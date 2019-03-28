@@ -23,6 +23,7 @@ export const setSelectedCity = (payload) => (
     const weather_data = await data.json()
     const forecastData = transformForecast(weather_data)
     console.log(forecastData)
+    debugger
 
     dispatch(setForecastData({ city: payload, forecastData }))
   }
