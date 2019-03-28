@@ -4,7 +4,6 @@ export const cities = (state = {}, action) => {
   switch (action.type) {
     case SET_FORECAST_DATA:
       const { city, forecastData } = action.payload
-      debugger
       return {
         ...state,
         [city]: {
