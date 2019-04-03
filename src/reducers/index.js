@@ -3,6 +3,7 @@ import { cities, getWeatherCities as _getWeatherCities } from './cities'
 import { city } from './city'
 import { createSelector } from 'reselect'
 
+
 export default combineReducers({
   city,
   cities,
