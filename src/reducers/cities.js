@@ -11,6 +11,7 @@ export const cities = (state = {}, action) => {
         [city]: {
           ...state[city],
           forecastData,
+          forecastDataDate: new Date()
         }
       }
     } 

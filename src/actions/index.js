@@ -46,8 +46,16 @@ export const setWeather = (payload) => {
 }
 
 export const setCityAndForecastData = (payload) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     dispatch(setCity(payload))
+
+    const state = getState()
+    const date = state.cities[payload] && state.cities[payload].forecastDataDate
+    const now = new Date()
+
+    if(date && (now - date) < 1 * 60 * 1000) {
+      return
+    }
 
     const url_forecast = getUrlForecastDataByCity(payload) 
     const data = await fetch(url_forecast)
