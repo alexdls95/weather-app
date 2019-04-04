@@ -1,6 +1,7 @@
 import transformWeather from '../services/transformWeather';
+import transformForecast from '../services/transformForecast'
 import getUrlWeatherByCity from '../services/getUrlWeatherByCity'
-
+import getUrlForecastDataByCity from '../services/getUrlForecastDataByCity'
 export const SET_CITY = 'SET_CITY'
 export const SET_FORECAST_DATA = 'SET_FORECAST_DATA'
 export const SET_CITY_WEATHER = 'SET_CITY_WEATHER'
@@ -22,6 +23,11 @@ const setWeatherCity = payload => ({
   payload,
 })
 
+const setForecastData = payload => ({
+  type: SET_FORECAST_DATA,
+  payload
+})
+
 export const setWeather = (payload) => {
   return dispatch => {
     payload.forEach(city => {
@@ -36,5 +42,19 @@ export const setWeather = (payload) => {
         dispatch(setWeatherCity({city, weather}))
       })
     })
+  }
+}
+
+export const setCityAndForecastData = (payload) => {
+  return async (dispatch) => {
+    dispatch(setCity(payload))
+
+    const url_forecast = getUrlForecastDataByCity(payload) 
+    const data = await fetch(url_forecast)
+    const weather_data = await data.json()
+    const forecastData = transformForecast(weather_data)
+    console.log(forecastData)
+
+    dispatch(setForecastData({ city: payload, forecastData }))
   }
 }

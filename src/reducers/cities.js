@@ -9,6 +9,7 @@ export const cities = (state = {}, action) => {
       return {
         ...state,
         [city]: {
+          ...state[city],
           forecastData,
         }
       }
