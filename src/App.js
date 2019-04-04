@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <Grid>
+      <Grid fluid>
       <Row>
         <AppBar position='static'>
           <Toolbar>
