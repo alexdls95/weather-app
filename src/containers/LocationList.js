@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { setCityAndForecastData, setWeather } from './../actions'
+import * as actions from './../actions'
 import { getWeatherCities, getCity } from '../reducers'
 import { connect } from 'react-redux'
 import LocationList from './../components/LocationList'
+import { bindActionCreators } from 'redux';
 
 class LocationListContainer extends Component {
 
@@ -31,10 +32,7 @@ const mapStateToProps = state => ({
   city: getCity(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-  setCityAndForecastData: city => dispatch(setCityAndForecastData(city)),
-  setWeather: cities => dispatch(setWeather(cities))
-});
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch)
 
 LocationListContainer.propTypes = {
   setCityAndForecastData: PropTypes.func.isRequired,
